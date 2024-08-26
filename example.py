@@ -31,7 +31,11 @@ number_of_movies = len(movie_urls)
 
 browser.execute_script("window.open('');")
 time.sleep(2)
-
+amazon =[]
+netflix =[]
+jio_cinema = []
+zee5=[]
+sony_liv=[]
 
 
 # Switch back to the original tab
@@ -53,37 +57,41 @@ for i in range(number_of_movies):
     try:
         amazon_prime_element = browser.find_element(By.XPATH, "//img[@alt='Amazon Prime Video']")
         if amazon_prime_element:
-
+            amazon.append(movie)
     except Exception:
         print(f"{movie} is not available on Amazon Prime Video.")
 
     try:
-        amazon_prime_element = browser.find_element(By.XPATH, "//img[@alt='Netflix']")
-        if amazon_prime_element:
+        netflix_element = browser.find_element(By.XPATH, "//img[@alt='Netflix']")
+        if netflix_element:
+            netflix.append(movie)
 
     except Exception:
-        print(f"{movie} is not available on Amazon Prime Video.")
+        print(f"{movie} is not available on Netflix.")
 
     try:
-        amazon_prime_element = browser.find_element(By.XPATH, "//img[@alt='Jio Cinema']")
-        if amazon_prime_element:
+        jio_cinema_element = browser.find_element(By.XPATH, "//img[@alt='Jio Cinema']")
+        if jio_cinema_element:
+            jio_cinema.append(movie)
 
     except Exception:
-        print(f"{movie} is not available on Amazon Prime Video.")
+        print(f"{movie} is not available on Jio cinema.")
 
     try:
-        amazon_prime_element = browser.find_element(By.XPATH, "//img[@alt='Zee5']")
-        if amazon_prime_element:
+        zee5_element = browser.find_element(By.XPATH, "//img[@alt='Zee5']")
+        if zee5_element:
+            zee5.append(zee5_element)
 
     except Exception:
-        print(f"{movie} is not available on Amazon Prime Video.")
+        print(f"{movie} is not available on zee5.")
 
     try:
-        amazon_prime_element = browser.find_element(By.XPATH, "//img[@alt='Sony Liv]")
-        if amazon_prime_element:
+        sony_liv_element = browser.find_element(By.XPATH, "//img[@alt='Sony Liv']")
+        if sony_liv_element:
+            sony_liv.append(movie)
 
     except Exception:
-        print(f"{movie} is not available on Amazon Prime Video.")
+        print(f"{movie} is not available on Sony Liv.")
     # Close the current tab
     browser.close()
     number_of_movies-=1
